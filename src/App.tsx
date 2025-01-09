@@ -26,6 +26,7 @@ import HistoricoEmails from './pages/emails/HistoricoEmails';
 import Tasks from './pages/tasks/Tasks';
 import TaskHistory from './pages/tasks/TaskHistory';
 import TasksDashboard from './pages/tasks/Dashboard';
+import NotesDashboard from './pages/tasks/NotesDashboard';
 
 function RequireAuth({ children }: { children: JSX.Element }) {
   const { isAuthenticated } = useAuth();
@@ -75,6 +76,7 @@ function AppContent() {
 
               {/* Task Routes */}
               <Route path="/tasks/dashboard" element={<TasksDashboard />} />
+              <Route path="/tasks/notes-dashboard" element={<NotesDashboard />} />
               <Route path="/tasks" element={<Tasks />} />
               <Route path="/tasks/history" element={<TaskHistory />} />
             </Routes>

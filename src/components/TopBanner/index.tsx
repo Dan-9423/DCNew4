@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/dialog";
 
 const pageNames: Record<string, string> = {
+  '/tasks/dashboard': 'Dashboard - Tasks',
+  '/tasks/notes-dashboard': 'Dashboard - Notas',
   '/emails/dashboard': 'Dashboard - Factory',
   '/emails/template': 'Templates de E-mail',
   '/emails/sacados': 'Sacados',
