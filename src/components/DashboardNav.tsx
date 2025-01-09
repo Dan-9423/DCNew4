@@ -85,24 +85,14 @@ const navConfig: NavConfig = {
   '/tasks': [
     {
       title: 'Tasks',
-      href: '/tasks/dashboard',
+      href: '/tasks',
       icon: <ListTodo className="w-4 h-4" />
-    },
-    {
-      title: 'Notas',
-      href: '/tasks/notes-dashboard',
-      icon: <FileBox className="w-4 h-4" />
     }
   ],
   '/tasks/history': [
     {
-      title: 'Tasks',
-      href: '/tasks/dashboard',
-      icon: <ListTodo className="w-4 h-4" />
-    },
-    {
       title: 'Notas',
-      href: '/tasks/notes-dashboard',
+      href: '/tasks/history',
       icon: <FileBox className="w-4 h-4" />
     }
   ]
