@@ -76,13 +76,18 @@ export default function Tasks() {
     }
   };
 
+  const handleToggleTask = (listId: string, taskId: string) => {
+    toggleTask(listId, taskId);
+  };
+
   // Get all tasks from all lists if no list is selected, or tasks from selected list
   const getAllTasks = () => {
     if (!selectedList || selectedList.id === 'all') {
       return taskLists.flatMap(list => 
         list.tasks.map(task => ({
           ...task,
-          listName: list.name
+          listName: list.name,
+          listId: list.id
         }))
       ).sort((a, b) => {
         // Sort by creation date (newest first)
@@ -243,7 +248,8 @@ export default function Tasks() {
             >
               <Checkbox
                 checked={task.completed}
-                onCheckedChange={() => toggleTask(selectedList?.id || '', task.id)}
+                onCheckedChange={() => handleToggleTask('listId' in task ? task.listId : selectedList?.id || '', task.id)}
+                className="cursor-pointer"
               />
               <div className="flex-1">
                 <span className={cn(
@@ -261,7 +267,7 @@ export default function Tasks() {
                 variant="ghost"
                 size="icon"
                 className="h-8 w-8 ml-auto text-red-500 hover:text-red-600"
-                onClick={() => deleteTask(selectedList?.id || '', task.id)}
+                onClick={() => deleteTask('listId' in task ? task.listId : selectedList?.id || '', task.id)}
               >
                 <Trash2 className="h-4 w-4" />
               </Button>
@@ -270,7 +276,7 @@ export default function Tasks() {
         </div>
       </div>
 
-      {/* Dialogs remain the same */}
+      {/* Dialogs */}
       <Dialog open={showNewListDialog} onOpenChange={setShowNewListDialog}>
         <DialogContent>
           <DialogHeader>
