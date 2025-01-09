@@ -92,7 +92,7 @@ export default function Sidebar() {
       icon: <ListTodo className="w-5 h-5" />,
       submenu: [
         { title: 'Task', path: '/tasks' },
-        { title: 'Histórico', path: '/tasks/history' },
+        { title: 'Bloco de Notas', path: '/tasks/history' },
       ],
     },
     {
